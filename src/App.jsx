@@ -3,6 +3,7 @@ import Grid from "./containers/Grid/Grid";
 import { BsPersonFillAdd } from "react-icons/bs";
 import Modal from "./containers/Modal/Modal";
 import useModal from "./hooks/useModal";
+import AddForm from "./components/AddForm/AddForm";
 
 function App() {
 	const [isOpen, openModal, closeModal] = useModal(true);
@@ -19,7 +20,10 @@ function App() {
 				title="Nuevo usuario"
 				isOpen={isOpen}
 				closeModal={closeModal}
-			></Modal>
+			>
+				{" "}
+				<AddForm />{" "}
+			</Modal>
 		</div>
 	);
 }
