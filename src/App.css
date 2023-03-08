@@ -1,0 +1,31 @@
+.add {
+	padding: 2rem;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.add button {
+	padding: 0.5rem 1rem;
+	color: #fff;
+	border: none;
+	min-width: 120px;
+	font-weight: bold;
+	border-radius: 5px;
+	background: #4b6cb7;
+	background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
+	background: linear-gradient(to right, #182848, #4b6cb7);
+	transition: 0.5s ease;
+
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.add button:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+}
+
+.add button:hover svg {
+	color: #bfe6ba;
+}
