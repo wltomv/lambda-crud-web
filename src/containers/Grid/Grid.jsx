@@ -6,6 +6,18 @@ function Grid() {
 	return (
 		<div className={styles.container}>
 			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+
+			<Card />
+			<Card />
 		</div>
 	);
 }

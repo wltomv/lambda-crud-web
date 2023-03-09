@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import styles from "./Modal.module.css";
 
 function Modal({ children, isOpen, closeModal, title }) {
+	useEffect(() => {
+		isOpen ? (document.body.style.overflow = "hidden") : "unset";
+		return () => (document.body.style.overflow = "unset");
+	}, [isOpen]);
+
 	return (
 		<article className={`${styles.modal} ${isOpen && styles.is_open}`}>
 			<div className={styles.modal_container}>
