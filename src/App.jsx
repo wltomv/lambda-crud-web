@@ -6,7 +6,7 @@ import useModal from "./hooks/useModal";
 import AddForm from "./components/AddForm/AddForm";
 
 function App() {
-	const [isOpen, openModal, closeModal] = useModal(true);
+	const [isOpen, openModal, closeModal] = useModal(false);
 
 	return (
 		<div className="App">
@@ -16,11 +16,7 @@ function App() {
 				</button>
 			</div>
 			<Grid />
-			<Modal
-				title="Nuevo usuario"
-				isOpen={isOpen}
-				closeModal={closeModal}
-			>
+			<Modal title="Nuevo usuario" isOpen={isOpen} closeModal={closeModal}>
 				{" "}
 				<AddForm />{" "}
 			</Modal>

@@ -2,20 +2,17 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 import styles from "./Card.module.css";
 
-function Card() {
+function Card({ name, profile, image }) {
 	return (
 		<div className={styles.card}>
 			<div className={styles.imgBx}>
-				<img
-					src="https://imagen.research.google/main_gallery_images/a-brain-riding-a-rocketship.jpg"
-					alt=""
-				/>
+				<img src={image} alt="" />
 			</div>
 			<div className={styles.content}>
 				<div className={styles.details}>
 					<h2>
-						Nombre <br />
-						<span>Perfil</span>
+						{name} <br />
+						<span>{profile}</span>
 					</h2>
 				</div>
 			</div>
