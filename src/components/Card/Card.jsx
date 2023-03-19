@@ -1,8 +1,17 @@
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { deleteUser } from "../../services/user.service";
+import { toast } from "react-toastify";
 
 import styles from "./Card.module.css";
 
-function Card({ name, profile, image }) {
+function Card({ user }) {
+	const { name, profile, image } = user;
+	const handleDelete = async (id) => {
+		const res = await deleteUser(id);
+		if (res.status) toast.success(res.message);
+		else toast.error(res.message);
+	};
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.imgBx}>
@@ -20,7 +29,7 @@ function Card({ name, profile, image }) {
 				<button type="button">
 					<AiFillEdit size={24} />
 				</button>
-				<button type="button">
+				<button type="button" onClick={() => handleDelete(user.id)}>
 					<AiFillDelete size={24} />
 				</button>
 			</div>

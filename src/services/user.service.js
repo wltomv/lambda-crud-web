@@ -54,3 +54,13 @@ export async function addUser(data, file) {
 		message: "Ocurrio un error, por favor intentelo más tarde",
 	};
 }
+
+export async function deleteUser(id) {
+	const url = `users/${id}`;
+	const res = await client.delete(url);
+	const status = res.status == 200 ? true : false;
+	const message = status
+		? "Usuario eliminado con éxito"
+		: "Ocurrio un error, por favor intentelo más tarde";
+	return { status, message };
+}

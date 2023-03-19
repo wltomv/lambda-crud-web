@@ -12,12 +12,7 @@ function Grid() {
 		<div className={styles.container}>
 			<Suspense fallback={<div>Loading...</div>}>
 				{data?.map((user) => (
-					<Card
-						image={user.image}
-						name={user.name}
-						profile={user.profile}
-						key={user.id}
-					/>
+					<Card user={user} key={user.id} />
 				))}
 			</Suspense>
 		</div>
