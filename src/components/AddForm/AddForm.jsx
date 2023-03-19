@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BiImageAdd } from "react-icons/bi";
+import { addUser } from "../../services/user.service";
+import { toast } from "react-toastify";
 import readfile from "../../utils/readFile";
 import Avatar from "../Avatar/Avatar";
 
@@ -14,9 +16,17 @@ function AddForm() {
 		setMedia(newImage);
 	};
 
+	const clearForm = () => {
+		setMedia({});
+		reset();
+	};
 	const { register, reset, handleSubmit } = useForm();
 	const onSubmit = async (data) => {
-		console.log(data);
+		const res = await addUser(data, media.file);
+		if (res.status) {
+			toast.success(res.message);
+			clearForm();
+		} else toast.error(res.message);
 	};
 
 	return (
@@ -42,7 +52,7 @@ function AddForm() {
 					<input
 						type="text"
 						required="required"
-						{...register("fullName", {
+						{...register("name", {
 							required: true,
 						})}
 					/>

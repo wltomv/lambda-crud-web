@@ -11,8 +11,13 @@ function Grid() {
 	return (
 		<div className={styles.container}>
 			<Suspense fallback={<div>Loading...</div>}>
-				{data?.results.map((user) => (
-					<Card image={user.image} name={user.name} profile={user.profile} />
+				{data?.map((user) => (
+					<Card
+						image={user.image}
+						name={user.name}
+						profile={user.profile}
+						key={user.id}
+					/>
 				))}
 			</Suspense>
 		</div>
