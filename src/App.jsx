@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	const [isOpen, openModal, closeModal] = useModal(false);
-
 	return (
 		<>
 			<div className="App">
