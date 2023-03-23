@@ -1,15 +1,18 @@
-import "./App.css";
+import { useContext } from "react";
 import Grid from "./containers/Grid/Grid";
 import { BsPersonFillAdd } from "react-icons/bs";
 import Modal from "./containers/Modal/Modal";
 import useModal from "./hooks/useModal";
 import AddForm from "./components/AddForm/AddForm";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { UserContext } from "./context/usersContext";
 
+import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	const [isOpen, openModal, closeModal] = useModal(false);
+	const { users } = useContext(UserContext);
 	return (
 		<>
 			<div className="App">
@@ -18,7 +21,7 @@ function App() {
 						<BsPersonFillAdd /> Agregar
 					</button>
 				</div>
-				<Grid />
+				<Grid users={users} />
 				<Modal title="Nuevo usuario" isOpen={isOpen} closeModal={closeModal}>
 					{" "}
 					<AddForm />{" "}

@@ -16,6 +16,13 @@ export function getUsers() {
 	return wrapPromise(promise);
 }
 
+export function getData() {
+	return client
+		.get("/users")
+		.then((res) => res.data)
+		.catch((err) => err);
+}
+
 function getSignedURL(imageName) {
 	const url = `/postUrl/${imageName}`;
 	return client
@@ -47,7 +54,8 @@ export async function addUser(data, file) {
 		const message = status
 			? "Usuario añadido con éxito"
 			: "Ocurrio un error, por favor intentelo más tarde";
-		return { status, message };
+
+		return { status, message, data: res.data };
 	}
 	return {
 		status: false,
